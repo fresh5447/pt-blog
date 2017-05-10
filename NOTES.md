@@ -65,3 +65,42 @@ Then import this code into `app.js` and call the function
   - `git checkout master`
   - `git merge articles` -> brings your new code into articles
   - `git push origin master` -> sync your master branch with new code
+
+
+  Once CRUD routes are implemented, refactor to use the `index` export method,
+  it should look like this:
+  ```
+  const express = require('express');
+  const ArticleRoutes = require('./articles/routes')
+
+  /* GET test route. */
+  module.exports = (app) => {
+    app.get('/api/articles', ArticleRoutes.getAll);
+    app.post('/api/articles', ArticleRoutes.createOne);
+    app.get('/api/articles/:article_id', ArticleRoutes.getOne);
+    app.delete('/api/articles/:article_id', ArticleRoutes.removeOne);
+    app.put('/api/articles/:article_id', ArticleRoutes.editOne);
+  };
+```
+
+Testing:
+Use Mocha, Chai, & chai-http to run your test suite. In order to have a seperate DB for testing purposed, add this script to your `package.json`
+`    "test": "NODE_ENV=test mocha --no-deprecation --sort --colors --inline-diffs --bail"
+`
+
+Then in your database config file, create a database based on your NODE_ENV, like so:
+
+```
+var mongoose = require('mongoose');
+
+module.exports = () => {
+  if (process.env.NODE_ENV === 'test' ) {
+    mongoose.connect("mongodb://localhost/test-pt-blog");
+    console.log("📁 📂 🗄 TEST DATABASE OPERATIONAL 🗄 📂 📁");
+  } else {
+    mongoose.connect("mongodb://localhost/pt-blog")
+    console.log("📁 📂 🗄 DEV DATABASE OPERATIONAL 🗄 📂 📁");
+  }
+
+}
+```

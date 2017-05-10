@@ -1,10 +1,14 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const routes = require('./routes/index');
 require('./config/database-connection')();
+
+
+
 
 var app = express();
 
@@ -15,9 +19,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.get('/test', function(req,res){
-  res.json({message: "App functioning properly"})
-});
+// mount all api endpoints
+routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,6 +52,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
