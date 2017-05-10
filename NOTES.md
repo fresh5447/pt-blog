@@ -33,3 +33,24 @@ update server in bin/www to use port 3001:
 Take the app for a spin, and test your endpoint using PostMan
 
 If the app is functional - commit your code
+
+Configure MongoDB
+  - Install any dependencies
+    - IE Mongo & Mongoose
+  - Add magically connect to Database line
+  - Commit code
+
+#### Begin API Phase
+
+  - Checkout to a safe branch
+  - `git checkout -b articles`
+  - Create article Model
+  - Create routes folder, and `routes/articles.js`
+  - Create Endpoints in `routes/articles` ONE AT A TIME, and continually test using PostMan
+  - Once you are satisfied all CRUD routes work
+  - `git add -A`
+  - `git commit -m 'some msg'`
+  - `git push origin articles` -> Note you pushed to your new branch
+  - `git checkout master`
+  - `git merge articles` -> brings your new code into articles
+  - `git push origin master` -> sync your master branch with new code
