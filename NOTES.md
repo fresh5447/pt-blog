@@ -37,7 +37,18 @@ If the app is functional - commit your code
 Configure MongoDB
   - Install any dependencies
     - IE Mongo & Mongoose
-  - Add magically connect to Database line
+  - Create DB connection code in it's own file: `config/database-connection`
+  ```
+  var mongoose = require('mongoose');
+
+  module.exports = () => {
+    mongoose.connect("mongodb://localhost/pt-blog");
+    console.log("📁 📂 🗄 DATABASE OPERATIONAL 🗄 📂 📁")
+  }
+
+```
+Then import this code into `app.js` and call the function
+`require('./config/database-connection')();`
   - Commit code
 
 #### Begin API Phase
