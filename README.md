@@ -1,6 +1,6 @@
 # Personal Blogging Site
 
-#### *synopsis*
+### overview
 This is a full stack javascript project, utilizing all the tools and technologies I have learned while attending BSCA.
 
 The project will consists of a Home page, which markets my current skill sets as a developer, complete with an about me, and portfolio section.
@@ -11,7 +11,7 @@ User authentication will also be implemented, as a means of who can create Posts
 
 ----
 
-#### *Install Instructions*
+### To Run
 
 1) `git clone <url>`
 
@@ -19,23 +19,23 @@ User authentication will also be implemented, as a means of who can create Posts
 
 ----
 
-#### Backend Overview
-Technologies
+### Backend Overview
+#### *Technologies*
   - NodeJS
   - ExpressJS
   - MongoDB
   - Mongo
 
-  API
+#### *API*
 
-  ToDo - Document all of your endpoints, how to utilize them, and the expected response for each endpoint.
+__ToDo - Document all of your endpoints, how to utilize them, and the expected response for each endpoint.__
 
-  Resources
-    - Article
-      - title
-      - content
+Resources
+  - Article
+    - title
+    - content
 
-  Ex. Article Resource
+  __Ex. Article Resource__
   ```
   {
       title: "My First Blog Post",
@@ -45,14 +45,15 @@ Technologies
 
 ----
 
-#### Front End Overview
-Technologies
+### Front End Overview
+
+#### *Technologies*
   - ReactJS
   - React Router
   - Bootstrap
 
-  Pages
-    - Home
+####  *Pages*
+  - Home
     - Blog
       - Articles List
       - View Articles
@@ -64,14 +65,14 @@ Technologies
 
 ----
 
-#### Stage One
+#### Phase One
 * Create functional Node/Express Application
 * Implement CRUD RESTful API for Article Resource
 * TDD: Implement at least 3 tests
 
 ----
 
-#### State Two
+#### Phase Two
 * Create functional React App
 * Implement Router, to get to each one of your `Container` comps
 * Implement client side CRUD for Articles
