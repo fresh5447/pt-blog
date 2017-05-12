@@ -3,17 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-.my-nav-flex {
-  display: flex;
-  justify-content: space-around;
-}
-
-.card-panel {
-  border: solid 3px red;
-  padding: 5px;
-}
-
-.card-btn {
-  margin: 10px;
-}

@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
-
-import NavBar from './components/NavBar';
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import {container} from './App.css'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
-        <div className="container">
-          { this.props.children }
-        </div>
+      <div className={container}>
+        <h1>Hello world</h1>
       </div>
-    )
+    );
   }
 }
 
