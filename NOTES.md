@@ -106,3 +106,29 @@ module.exports = () => {
 ```
 
 #### Phase Two:
+
+We are going to use 'custom-react-scripts' to bootstrap our React app (in the past we have used create-react-app), this will give us a bit more control over our configuration
+
+[custom-react-scripts](https://www.npmjs.com/package/react-scripts-custom)
+
+`npm install -g create-react-app`
+
+Then we will cut out the extra stuff, and reconfigure the directory to our liking
+
+
+Install React-router -  
+`npm install --save react-router@3`
+
+
+
+
+Blog Post Components
+
+ArticleList
+  ArticleCard
+
+PostArticle
+
+EditArticle
+
+ViewArticle
