@@ -121,14 +121,49 @@ Install React-router -
 
 
 
+#### Faker section
+We are going to store an `env` variable whicl will decide if we should seed our
+database our not.
 
-Blog Post Components
+In the root of your node folder make a file called `.env`, and make sure to add this file to your `gitignore`
 
-ArticleList
-  ArticleCard
+Add this to `.env`
 
-PostArticle
+`SEED_DATABASE=true`
 
-EditArticle
+We are going to use an npm called dotenv -> which will look at this file to interpret the variables.
 
-ViewArticle
+in the root of Node:
+`npm install --save dotenv`
+
+Then at the very top of your `app.js` add `require('dotenv').config();`
+
+Let's test if it is working. In `app.js`, just below all your other imports add this line:
+
+```
+if(process.env.SEED_DATABASE==='true') {
+  console.log("About to seed the database")
+}
+```
+
+Run your node server and you should see the console.log; Stop your server, update the .env var to be false, and you will no longer see the console.log.
+
+Why did we do this? We are going to write our script that will empty our datbase and create new data. It would be overkill to do this every single time our node app fires up, so we will just set SEED_DATABASE to true, whenever we want to start with a fresh database.
+
+In `config/` make a file called `database_seeder.js` To start have it export a console.log. Now in `app.js` instead of a console.log; import and execute the newly created script.
+
+```
+// config/database_seeder.js
+module.exports = () => {
+  console.log("found the database seeder")
+}
+```
+
+And in App.js ->
+```
+if(process.env.SEED_DATABASE==='true') {
+  require('./config/database_seeder')();
+}
+```
+
+Now all we need to do is use Faker.js to make fake data and save it to our codebase.

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -8,6 +9,10 @@ const routes = require('./routes/index');
 require('./config/database-connection')();
 
 var app = express();
+
+if(process.env.SEED_DATABASE==='true') {
+  require('./config/database_seeder')();
+}
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
