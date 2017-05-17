@@ -7,3 +7,8 @@
   border: solid 3px green;
   padding: 20px;
 }
+
+.mainContainer {
+  margin-left: 5%;
+  margin-right: 5%;
+}

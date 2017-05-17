@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {browserHistory} from 'react-router';
 import $ from 'jquery';
 
-import PostArticle from '../../components';
+import {PostArticle} from '../../components';
 
 class PostArticleContainer extends Component {
   state = {
@@ -29,7 +29,7 @@ class PostArticleContainer extends Component {
       url: "/api/articles",
       method: "POST",
       data
-    }).done((response) => browserHistory.push('/articles/all'))
+    }).done((response) => browserHistory.push('/articles'))
   }
   render() {
     return (
