@@ -1,2 +1,7 @@
 export {default as Home} from './Home/Home'
 export {default as About} from './About/About'
+export {default as Articles} from './Articles/Articles'
+export {default as EditArticle} from './EditArticle/EditArticle'
+export {default as PostArticle} from './PostArticle/PostArticle'
+export {default as ViewArticle} from './ViewArticle/ViewArticle'
+export {default as Navigation} from './Navigation/Navigation'

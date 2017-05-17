@@ -167,3 +167,4 @@ if(process.env.SEED_DATABASE==='true') {
 ```
 
 Now all we need to do is use Faker.js to make fake data and save it to our codebase.
+https://github.com/Marak/faker.js
