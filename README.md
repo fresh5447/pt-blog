@@ -79,6 +79,10 @@ Resources
 * Seed Dev DB with fake data using [faker](https://github.com/Marak/faker.js)
 
 
+### Phase Three
+* Implement comments on Posts
+  * Start with Backend models first
+  * Implement UX around creating and deleting comments on post.
 ----
 
 #### Product Roadmap

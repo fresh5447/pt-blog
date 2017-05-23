@@ -168,3 +168,10 @@ if(process.env.SEED_DATABASE==='true') {
 
 Now all we need to do is use Faker.js to make fake data and save it to our codebase.
 https://github.com/Marak/faker.js
+
+
+## Phase Three Solution
+
+1) Create Model Comment with field content
+2) Add Comment relationship to Post
+3) Implement API endpoint to create comment on Post.
