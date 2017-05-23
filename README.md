@@ -76,11 +76,12 @@ Resources
 * Create functional React App
 * Implement Router, to get to each one of your `Container` comps
 * Implement client side CRUD for Articles
+* Seed Dev DB with fake data using [faker](https://github.com/Marak/faker.js)
+
 
 ----
 
 #### Product Roadmap
-* Seed Dev DB with fake data using [faker](https://github.com/Marak/faker.js)
 * User Auth with [auth0](https://auth0.com/)
 * Protecting routes/ functionality from non-authed users
 * Forming Comments/ Articles relationships
