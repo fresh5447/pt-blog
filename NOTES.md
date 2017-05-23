@@ -170,8 +170,66 @@ Now all we need to do is use Faker.js to make fake data and save it to our codeb
 https://github.com/Marak/faker.js
 
 
-## Phase Three Solution
+## Phase Three Solution Notes
+Create comment schema:
+```
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-1) Create Model Comment with field content
-2) Add Comment relationship to Post
-3) Implement API endpoint to create comment on Post.
+const CommentSchema = Schema({
+  content: String
+});
+
+module.exports = mongoose.model('Comment', CommentSchema);
+
+```
+
+Relate comment to article:
+```
+
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
+
+
+module.exports = mongoose.model('Article', ArticleSchema);
+
+```
+
+Create API endpoint that will create a new Comment - then look up an article by id -> then push
+this comment in to the array of comments.
+```
+exports.createComment = (req, res) => {
+  const newComment = new Comment({
+    content: req.body.content,
+  });
+
+  newComment.save((err, com) => {
+    if(err) res.send(err)
+      Article.findById(req.params.article_id, (err, article) => {
+        if (err) return res.send(err);
+        article.comments.push(com._id)
+        article.save((err) => {
+            if (err) return res.send(err);
+            res.json({message: 'Comment Created', article});
+          })
+      })
+  })
+
+}
+
+```
+
+Now that we are creating comments, let's use mongoose populate
+show get all and get one article, then populate, then do it again.
+```
+Article.findById(req.params.article_id)
+.populate('comments')
+.exec((err, data) => {
+  if (err || !data) {
+    res.json({err: err, message: 'No Data Found With That ID'});
+  } else {
+    res.json({message: 'Article Found', data});
+  }
+});
+```
+
+Update Your Seeder to create random comments and save them to your articles

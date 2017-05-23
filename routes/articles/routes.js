@@ -1,14 +1,19 @@
 const Article = require('../../models/article');
+const Comment = require('../../models/comment');
 
 exports.getAll = (req, res) => {
-  Article.find((err, data) => {
+  Article.find()
+  .populate('comments')
+  .exec((err, data) => {
     if (err) return res.send(err, 'Error finding all Articles');
     res.json({message: 'Found Articles', data});
   });
 };
 
 exports.getOne = (req, res) => {
-  Article.findById(req.params.article_id, (err, data) => {
+  Article.findById(req.params.article_id)
+  .populate('comments')
+  .exec((err, data) => {
     if (err || !data) {
       res.json({err: err, message: 'No Data Found With That ID'});
     } else {
@@ -28,6 +33,25 @@ exports.createOne = (req, res) => {
     res.json({message: 'Article Created', data});
   });
 };
+
+exports.createComment = (req, res) => {
+  const newComment = new Comment({
+    message: req.body.message,
+  });
+
+  newComment.save((err, com) => {
+    if(err) res.send(err)
+      Article.findById(req.params.article_id, (err, article) => {
+        if (err) return res.send(err);
+        article.comments.push(com._id)
+        article.save((err) => {
+            if (err) return res.send(err);
+            res.json({message: 'Comment Created', article});
+          })
+      })
+  })
+
+}
 
 exports.removeOne = (req, res) => {
   Article.remove({_id: req.params.article_id}, err => {

@@ -80,9 +80,14 @@ Resources
 
 
 ### Phase Three
-* Implement comments on Posts
-  * Start with Backend models first
-  * Implement UX around creating and deleting comments on post.
+
+* Create Model Comment with field content
+* Add Comment relationship to Article
+* Implement API endpoint to create Comment on Article.
+  *  make sure you populate the comment, on Article
+* Update DB seeder to create random comments on your Articles
+* Implement Client side ability to view comments for an article.
+* Implement Client side ability to post comment on an article.
 ----
 
 #### Product Roadmap

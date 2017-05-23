@@ -8,11 +8,14 @@ class ViewArticleContainer extends Component {
   state = {
     title: undefined,
     content: undefined,
+    articleId: undefined,
+    comments: undefined,
     loaded: false
   }
 
-  componentDidMount = () => this.loadArticle()
+  loadArticle = this.loadArticle.bind(this);
 
+  componentDidMount = () => this.loadArticle()
 
   loadArticle(){
     $.ajax({
@@ -23,10 +26,12 @@ class ViewArticleContainer extends Component {
       this.setState({
         title: article.title,
         content: article.content,
+        articleId: article._id,
+        comments: article.comments,
         loaded: true
       })
     })
-  }
+}
 
 
   render() {
@@ -37,12 +42,16 @@ class ViewArticleContainer extends Component {
         <ViewArticle
           title={this.state.title}
           content={this.state.content}
-
+          articleId={this.state.articleId}
+          comments={this.state.comments}
+          loadArticle={this.loadArticle}
         /> : null
       }
       </div>
     )
   }
 }
+
+
 
 export default ViewArticleContainer
