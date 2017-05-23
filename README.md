@@ -85,7 +85,6 @@ Resources
 * Add Comment relationship to Article
 * Implement API endpoint to create Comment on Article.
   *  make sure you populate the comment, on Article
-* Update DB seeder to create random comments on your Articles
 * Implement Client side ability to view comments for an article.
 * Implement Client side ability to post comment on an article.
 ----

@@ -15,8 +15,6 @@ class CommentFormContainer extends Component {
     }).done((data) => {
       this.props.loadArticle()
       this.setState({commentBody: ''})
-      // window.location = `/articles/view/${this.props.articleId}`
-      // this.props.loadArticle(this.props.articleId)
     })
   }
   render() {
@@ -25,6 +23,7 @@ class CommentFormContainer extends Component {
         <form onSubmit={(e) => this.submitComment(e)}>
           <h5> new comment </h5>
           <input placeholder="New Comment"
+            value={this.state.commentBody}
             onChange={(e) => this.setState({commentBody: e.target.value})}
            />
            <button type="submit"> comment </button>
