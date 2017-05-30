@@ -4,6 +4,7 @@ const Comment = require('../../models/comment');
 exports.getAll = (req, res) => {
   Article.find()
   .populate('comments')
+  .populate('categories')
   .exec((err, data) => {
     if (err) return res.send(err, 'Error finding all Articles');
     res.json({message: 'Found Articles', data});
@@ -13,6 +14,7 @@ exports.getAll = (req, res) => {
 exports.getOne = (req, res) => {
   Article.findById(req.params.article_id)
   .populate('comments')
+  .populate('categories')
   .exec((err, data) => {
     if (err || !data) {
       res.json({err: err, message: 'No Data Found With That ID'});
@@ -26,13 +28,18 @@ exports.createOne = (req, res) => {
   const newArticle = new Article({
     title: req.body.title,
     content: req.body.content,
+    categories: req.body.categories,
   });
-
+  console.log('about to create new article', newArticle)
   newArticle.save((err, data) => {
     if (err) return res.send(err);
     res.json({message: 'Article Created', data});
   });
 };
+
+// 592dc6ea9a7eaf6c7b0c988f
+// 592dc6ed9a7eaf6c7b0c9890
+// 592dc6f19a7eaf6c7b0c9891
 
 exports.createComment = (req, res) => {
   const newComment = new Comment({

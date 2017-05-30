@@ -87,6 +87,7 @@ Resources
   *  make sure you populate the comment, on Article
 * Implement Client side ability to view comments for an article.
 * Implement Client side ability to post comment on an article.
+* Implement Categories model
 ----
 
 #### Product Roadmap

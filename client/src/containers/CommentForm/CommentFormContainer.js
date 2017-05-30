@@ -22,7 +22,7 @@ class CommentFormContainer extends Component {
       <div>
         <form onSubmit={(e) => this.submitComment(e)}>
           <h5> new comment </h5>
-          <input placeholder="New Comment"
+          <input placeholder="New Commen"
             value={this.state.commentBody}
             onChange={(e) => this.setState({commentBody: e.target.value})}
            />
