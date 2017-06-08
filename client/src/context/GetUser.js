@@ -6,7 +6,8 @@ class GetUser extends Component {
       color: "purple",
       user: function(){
         return { name: "Doug" }
-      }
+      },
+      loadStuff: loadStuffFunction()
     };
   }
 
